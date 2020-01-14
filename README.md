@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/FrolovOlegVladimirovich/FNSNDSCAWS2.svg?branch=master)](https://travis-ci.org/FrolovOlegVladimirovich/FNSNDSCAWS2)
+[![codecov](https://codecov.io/gh/FrolovOlegVladimirovich/FNSNDSCAWS2/branch/master/graph/badge.svg)](https://codecov.io/gh/FrolovOlegVladimirovich/FNSNDSCAWS2)
 
 # Консольное приложение для проверки юридических лиц в базе ФНС по номеру ИНН.
 

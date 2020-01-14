@@ -2,8 +2,9 @@ package ru.client;
 
 import ru.nalog.npchk.FNSNDSCAWS2;
 import ru.nalog.npchk.NdsRequest2;
-import static ru.nalog.npchk.NdsRequest2.NP;
 import ru.nalog.npchk.NdsResponse2;
+
+import static ru.nalog.npchk.NdsRequest2.NP;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -154,6 +155,7 @@ public class Client {
      * Initializes the main loop for user interaction in the console.
      */
     public void init() {
+        System.setProperty("javax.xml.soap.SAAJMetaFactory", "com.sun.xml.messaging.saaj.soap.SAAJMetaFactoryImpl");
         boolean exit = false;
         do {
             String input = ask("Введите ИНН или адрес файла со списком ИНН. Для выхода введите q");
@@ -173,7 +175,6 @@ public class Client {
      * @param args Arguments are not supposed.
      */
     public static void main(String[] args) {
-        System.setProperty("javax.xml.soap.SAAJMetaFactory", "com.sun.xml.messaging.saaj.soap.SAAJMetaFactoryImpl");
         new Client().init();
     }
 }
