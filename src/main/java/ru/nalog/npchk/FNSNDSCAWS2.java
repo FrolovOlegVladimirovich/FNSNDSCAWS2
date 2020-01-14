@@ -18,10 +18,7 @@ import javax.xml.ws.WebServiceFeature;
  * 
  */
 @WebServiceClient(name = "FNSNDSCAWS2", targetNamespace = "http://ws.unisoft", wsdlLocation = "https://npchk.nalog.ru/FNSNDSCAWS_2?wsdl")
-public class FNSNDSCAWS2
-    extends Service
-{
-
+public class FNSNDSCAWS2 extends Service {
     private final static URL FNSNDSCAWS2_WSDL_LOCATION;
     private final static WebServiceException FNSNDSCAWS2_EXCEPTION;
     private final static QName FNSNDSCAWS2_QNAME = new QName("http://ws.unisoft", "FNSNDSCAWS2");
@@ -39,11 +36,11 @@ public class FNSNDSCAWS2
     }
 
     public FNSNDSCAWS2() {
-        super(__getWsdlLocation(), FNSNDSCAWS2_QNAME);
+        super(getWsdlLocation(), FNSNDSCAWS2_QNAME);
     }
 
     public FNSNDSCAWS2(WebServiceFeature... features) {
-        super(__getWsdlLocation(), FNSNDSCAWS2_QNAME, features);
+        super(getWsdlLocation(), FNSNDSCAWS2_QNAME, features);
     }
 
     public FNSNDSCAWS2(URL wsdlLocation) {
@@ -84,8 +81,8 @@ public class FNSNDSCAWS2
         return super.getPort(new QName("http://ws.unisoft", "FNSNDSCAWS2_Port"), FNSNDSCAWS2Port.class, features);
     }
 
-    private static URL __getWsdlLocation() {
-        if (FNSNDSCAWS2_EXCEPTION!= null) {
+    private static URL getWsdlLocation() {
+        if (FNSNDSCAWS2_EXCEPTION != null) {
             throw FNSNDSCAWS2_EXCEPTION;
         }
         return FNSNDSCAWS2_WSDL_LOCATION;
