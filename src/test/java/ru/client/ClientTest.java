@@ -9,7 +9,6 @@ import java.io.*;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
-@Ignore
 public class ClientTest {
     static private final String TMPDIR = System.getProperty("java.io.tmpdir");
     private final InputStream backupIn = System.in;
@@ -66,16 +65,7 @@ public class ClientTest {
         var file = new File(TMPDIR + File.separator + "test.txt");
         file.createNewFile();
         try (BufferedWriter writer = new BufferedWriter(new PrintWriter(file))) {
-            writer.write(String.format("%s%n%s%n%s%n%s%n%s%n%s%n%n%s%n%s",
-                    "7713011336",
-                    "0013011336",
-                    "wrong",
-                    "771301133634234",
-                    "7713011",
-                    "7721503733",
-                    "672204588096",
-                    "772481742000")
-            );
+            writer.write(String.format("%s%n", "0013011336"));
         }
         String input = file.getAbsolutePath() + System.lineSeparator() + "q";
         System.setOut(new PrintStream(testOutput));
@@ -83,11 +73,9 @@ public class ClientTest {
 
         new Client().init();
         System.setOut(backupOut);
-        var expect = String.format("%s%n%s%n%s%s%n%s%n",
+        var expect = String.format("%s%n%s%n%s%n",
                 "Введите ИНН или адрес файла со списком ИНН. Для выхода введите q",
-                "Проверка запроса...",
-                "ИНН: 7713011336 Результат: 3 - Налогоплательщик с указанным ИНН ",
-                "зарегистрирован в ЕГРН (КПП не соответствует ИНН или не указан)",
+                "Неверный формат ИНН или адрес файла: \"0013011336\"",
                 "Введите ИНН или адрес файла со списком ИНН. Для выхода введите q"
         );
         var result = testOutput.toString();
